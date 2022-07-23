@@ -1,0 +1,47 @@
+<!-- sldsValidatorIgnore -->
+<template>
+	<lightning-card title="Karan's To Do" style="width: 100%">
+		<lightning-button-icon
+			slot="actions"
+			icon-name="utility:sync"
+			alternative-text="Sync"
+			title="Sync"
+		>
+		</lightning-button-icon>
+		<lightning-layout>
+			<lightning-layout-item padding="around-small" size="12">
+				<ul class="slds-has-dividers_around-space">
+					<li class="slds-item">
+						<c-task name="Task 1"></c-task>
+					</li>
+					<li class="slds-item">
+						<c-task name="Task 2"></c-task>
+					</li>
+					<li class="slds-item">
+						<c-task name="Task 3"></c-task>
+					</li>
+					<li class="slds-item">
+						<c-task name="Task 4"></c-task>
+					</li>
+				</ul>
+			</lightning-layout-item>
+		</lightning-layout>
+		<p slot="footer">
+			<lightning-layout pull-to-boundary="small">
+				<lightning-layout-item padding="horizontal-small" flexibility="grow">
+					<lightning-input
+						type="text"
+						placeholder="Enter new task"
+						variant="label-hidden"
+						label="New Task"
+						required
+					>
+					</lightning-input>
+				</lightning-layout-item>
+				<lightning-layout-item padding="horizontal-small">
+					<lightning-button variant="brand" label="Add"> </lightning-button>
+				</lightning-layout-item>
+			</lightning-layout>
+		</p>
+	</lightning-card>
+</template>
