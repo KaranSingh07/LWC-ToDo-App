@@ -10,20 +10,16 @@
 		</lightning-button-icon>
 		<lightning-layout>
 			<lightning-layout-item padding="around-small" size="12">
-				<ul class="slds-has-dividers_around-space">
-					<li class="slds-item">
-						<c-task name="Task 1"></c-task>
-					</li>
-					<li class="slds-item">
-						<c-task name="Task 2"></c-task>
-					</li>
-					<li class="slds-item">
-						<c-task name="Task 3"></c-task>
-					</li>
-					<li class="slds-item">
-						<c-task name="Task 4"></c-task>
-					</li>
+				<ul class="slds-has-dividers_around-space" if:true={haveTasks}>
+					<template for:each={tasks} for:item="task">
+						<li key={task.Id} class="slds-item">
+							<c-task name={task.Name}></c-task>
+						</li>
+					</template>
 				</ul>
+				<label class="slds-p-around_x-small" if:false={haveTasks}
+					>Hurray! No tasks today!</label
+				>
 			</lightning-layout-item>
 		</lightning-layout>
 		<p slot="footer">
@@ -34,12 +30,15 @@
 						placeholder="Enter new task"
 						variant="label-hidden"
 						label="New Task"
+						value={newTaskName}
+						onchange={handleTaskInput}
 						required
 					>
 					</lightning-input>
 				</lightning-layout-item>
 				<lightning-layout-item padding="horizontal-small">
-					<lightning-button variant="brand" label="Add"> </lightning-button>
+					<lightning-button variant="brand" label="Add" onclick={handleAddNewTask}>
+					</lightning-button>
 				</lightning-layout-item>
 			</lightning-layout>
 		</p>
