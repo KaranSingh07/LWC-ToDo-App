@@ -12,8 +12,12 @@
 			<lightning-layout-item padding="around-small" size="12">
 				<ul class="slds-has-dividers_around-space" if:true={haveTasks}>
 					<template for:each={tasks} for:item="task">
-						<li key={task.Id} class="slds-item">
-							<c-task name={task.Name}></c-task>
+						<li key={task.TaskId} class="slds-item">
+							<c-task
+								task-id={task.TaskId}
+								task-name={task.TaskName}
+								ondeletetask={handleDeleteTask}
+							></c-task>
 						</li>
 					</template>
 				</ul>

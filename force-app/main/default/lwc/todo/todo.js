@@ -15,10 +15,17 @@ export default class Todo extends LightningElement {
 		this.newTaskName = '';
 	}
 
+	handleDeleteTask(event) {
+		const taskId = event.detail.taskId;
+		this.tasks = this.tasks.filter((task) => {
+			return task.TaskId !== taskId;
+		});
+	}
+
 	createTask() {
 		return {
-			Id: this.tasks.length,
-			Name: this.newTaskName,
+			TaskId: this.tasks.length,
+			TaskName: this.newTaskName,
 		};
 	}
 
@@ -31,6 +38,9 @@ export default class Todo extends LightningElement {
 
 	get tasks() {
 		return this.state.tasks;
+	}
+	set tasks(value) {
+		this.state.tasks = value;
 	}
 
 	get haveTasks() {
